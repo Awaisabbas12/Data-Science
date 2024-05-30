@@ -1,5 +1,5 @@
 from src.Data_Science.logger import logging
-from src.Data_Science.Exception import CustomException
+from Data_Science.Exception import CustomException
 import sys
 
 
