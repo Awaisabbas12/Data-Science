@@ -12,6 +12,7 @@ class dataingestionconfig:
     train_data_path:str = os.path.join('artifact','train.csv')
     test_data_path:str = os.path.join('artifact','test.csv')
     Raw_data_path:str = os.path.join('artifact','Raw.csv')
+    RawDate = os.path.join("Notebook","rawdate.csv")
 
 class dataingestion:
     def __init__(self):
@@ -25,6 +26,8 @@ class dataingestion:
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
 
             df.to_csv(self.ingestion_config.Raw_data_path,index=False,header=True)
+            df.to_csv(self.ingestion_config.RawDate,index=False,header=True)
+
 
             train_set,test_set = train_test_split(df,test_size=0.2)
             test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
